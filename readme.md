@@ -6,11 +6,12 @@ Introducing joomla musician collaboration, a component for Joomla 3 that allows 
 Functions
 ---------
 
-* Full functional Joomla template
-* Start from scratch with the css reset sheet
-* Support tablets, phones and even IE7
-* Customisable error, offline and print page
+* Facebook-like UI, with git-like user interactions
+* Detailed information about changes to each track, per profile
+* Customizable profile information, for each registered Joomla user
+* Integration with third-party services including Facebook, SoundCloud, ReverbNation, and others.
 * Advanced properties (html5, css3, ...)
+* Compatability with IE7 and below, with gracefull degradation
 
 
 Documentation
