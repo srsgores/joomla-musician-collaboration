@@ -1,0 +1,555 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+	
+	Licensed under the GNU Public License
+	
+	=============================================================================
+	Filename:  style.less
+	=============================================================================
+	Contains the basic styles for this application
+--------------------------------------------------------------------------------------------------------------------- */
+
+@import "imports/variables.less";
+@import "icomoon/icomoon.less";
+
+@import "imports/mixins.less";
+@import "imports/animate.less";
+
+@import "imports/reset.less";
+//@import "imports/alerts.less";
+@import "imports/button-groups.less";
+@import "imports/buttons.less";
+@import "imports/forms.less";
+@import "imports/tables.less";
+@import "imports/labels-badges.less";
+@import "imports/tooltip.less";
+@import "imports/chosen.less";
+@import "imports/toastr.less";
+@import "imports/toastr-responsive.less";
+@import "imports/media-queries.less";
+
+/* Layout
+----------------------------------------------------------------------------------------------------*/
+.row {
+	padding: 0 (@line/2)/@em;
+	width: 100%;
+	.border-box;
+//margin: remember that this will be exclusive to media queries still, as it depends on the resolution!
+	overflow: hidden;
+	&.container {
+	/*margin: 0 @column;*/
+		border-bottom: 1px solid #2E2E2E;
+		.box-shadow(inset 0px -15px 29px -15px #000);
+	}
+}
+
+
+.onecol,
+.twocol,
+.threecol,
+.fourcol,
+.fivecol,
+.sixcol,
+.sevencol,
+.eightcol,
+.ninecol,
+.tencol,
+.elevencol,
+.twelvecol {
+	float: left;
+	min-height: 1px;
+	.transition-all(@transition-time);
+}
+.row .onecol {
+	width: 8.333333333333332%;
+}
+.row .twocol {
+	width: 16.666666666666664%;
+}
+.row .threecol {
+	width: 25%;
+}
+.row .fourcol {
+	width: 33.33333333333333%;
+}
+.row .fivecol {
+	width: 41.666666666666664%;
+}
+.row .sixcol {
+	width: 50%;
+}
+.row .sevencol {
+	width: 58.33333333333333%;
+}
+.row .eightcol {
+	width: 66.66666666666666%;
+}
+.row .ninecol {
+	width: 75%;
+}
+.row .tencol {
+	width: 83.33333333333333%;
+}
+.row .elevencol {
+	width: 91.66666666666666%;
+}
+.row .twelvecol {
+	width: 100%;
+}
+.last {
+	margin-right: 0px;
+}
+
+/* System
+----------------------------------------------------------------------------------------------------*/
+body {
+/* 16px / 24px */
+	font-size: @baseFontSize / 16 * 1em;
+	font-family: @sansFontFamily;
+	line-height: @line / @em;
+	.box-shadow(#000 0 4em 15em 0 inset);
+	color: @text-colour;
+	-webkit-font-smoothing: antialiased;
+}
+
+hgroup.title {
+	text-align: center;
+	h1 {
+		margin: 0;
+		font-size: 4em;
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: @headingsFontFamily;
+	font-weight: @headingsFontWeight;
+}
+
+a {
+	color: #818181;
+	text-decoration: none;
+	.transition-all(0.3s);
+	&:hover {
+		text-shadow: 0 0 16px #DDD;
+	}
+}
+/*
+*
+*  Simple fluid media
+*
+*/
+
+figure {
+	position: relative;
+}
+figure img, figure object, figure embed, figure video {
+	max-width: 100%;
+	display: block;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
+*
+*/
+
+.small, small, code, #copyright p {
+	font-size: (@font-size*0.8125) / @em; // 13px
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
+}
+
+.normal {
+/* 16px / 24px */
+	font-size: @font-size / @em;
+	line-height: @line / @em; /* 24 */
+}
+
+.huge {
+/* 42px / 48px */
+	font-size: 42 / @em;
+	line-height: (@line*2) / 42 * 1em;
+}
+
+.massive {
+/* 68px / 72px */
+	font-size: 68 / @em;
+	line-height: (@line*3) / 68 * 1em;
+}
+
+.gigantic {
+/* 110px / 120px */
+	font-size: 110 / @em;
+	line-height: (@line*5) / 110 * 1em;
+}
+
+
+h1.title {
+	font-size: 3em;
+	margin-bottom: 0.4em;
+	line-height: 1.1em;
+}
+h2.subtitle {
+	font-size: 2em;
+	font-weight: italic;
+}
+p {
+	line-height: 1.4em;
+	padding-bottom: 0.7em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: @border-radius;
+}
+
+article {
+	margin-bottom: 1em;
+}
+
+
+.xlarge {
+	font-size: 1.3em;
+	padding: 0.3em 1em;
+	margin-right: 0.4em;
+}
+
+.feature {
+	padding: 0 2em;
+	.border-box;
+
+	i {
+		font-size: 7em;
+	}
+}
+
+.box {
+	.box-shadow(inset -3px 2px 40px black);
+	margin-bottom: @margin;
+	padding: @padding;
+}
+
+
+.nav {
+	li {
+		display: inline-block;
+	}
+	text-align: center;
+}
+
+header {
+	border-bottom: 1px solid #2E2E2E;
+//font-family: Raleway;
+	.box-shadow(inset 0px -15px 29px -15px black);
+	z-index: 99999; //over 9000!
+	background: #252525;
+	#menu {
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+		.dropdown {
+			a {
+			//padding: 0.5em 0.2em;
+			//background: rgba(93, 93, 93, 0.47);
+			}
+		}
+		.border-box;
+		.rounded-corners(@border-radius);
+		li {
+			display: inline-block;
+			a {
+				&:active {
+					.box-shadow(0, 0, 10px, #CCC);
+				}
+				&:hover, &.active {
+					.opacity(100);
+					text-shadow: 0 0 2px white;
+					background: rgba(0, 0, 0, 0.37);
+				}
+				.opacity(80);
+				.transition-all(@transition-time);
+				border-right: 1px solid #242424;
+				text-decoration: none;
+				color: #969696;
+				padding: 1em;
+				text-shadow: 0 0 3px black;
+			}
+			&:first-child {
+				a {
+					border-left: 1px solid #242424;
+				}
+			}
+			&:last-child {
+				a {
+				/*.rounded-corners-right(@border-radius);*/
+				}
+			}
+		}
+	}
+}
+
+footer {
+	z-index: 9999;
+	bottom: 0;
+}
+
+#toolbar, footer {
+	.module, ul {
+		margin: 0;
+		padding: 0;
+	}
+//#gradient > .vertical(#535353, #5D5D5D);
+	padding: 0;
+	border-bottom: 1px solid #272727;
+	.box-shadow(inset 0 0 30px black, inset 0 -11px 11px -14px black);
+}
+h1.showcase {
+	font-size: 5em;
+	font-family: @altFontFamily;
+	color: rgba(165, 165, 165, 0.81);
+	text-shadow: 0 0 15px rgba(201, 201, 201, 0.24);
+}
+
+h2.showcase {
+	font-family: @altFontFamily;
+	font-size: 4em;
+}
+
+.feature {
+	small {
+		text-shadow: none;
+		letter-spacing: 0.1em;
+		margin-left: 0.5em;
+	}
+	h1 {
+		text-shadow: 0 0 3px white;
+	}
+	margin-top: @margin;
+}
+
+
+#top-a {
+	.box-shadow(inset 0px -15px 450px -15px black);
+}
+
+/* =============================================================================
+CSS loaders
+========================================================================== */
+#ajaxloader1, #ajaxloader2, #ajaxloader3, #ajaxloader4
+{
+	width: 30px;
+	height: 30px;
+	margin: 20px auto;
+	border: 8px solid #0a0a0a;
+	border-right-color: transparent;
+	.rounded-corners(50%);
+	box-shadow: 0 0 25px 2px #eee;
+	-webkit-animation: spin 1s linear infinite;
+	-moz-animation: spin 1s linear infinite;
+	-ms-animation: spin 1s linear infinite;
+	-o-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+#ajaxloader1::after {
+	content: 'Loading...';
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+#ajaxloader2
+{
+	border-right: 0 none;
+}
+
+#ajaxloader3
+{
+	border-left-color: transparent;
+}
+
+#ajaxloader4
+{
+	border-bottom-color: transparent;
+}
+
+#ajaxloader3::after, #ajaxloader4::after
+{
+	display: block;
+	content: " ";
+	width: 9px;
+	height: 9px;
+	border: 6px solid #fff;
+	margin: 4px;
+	.rounded-corners(50%);
+}
+
+#ajaxloader3::after
+{
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+#ajaxloader4::after
+{
+	width: 13px;
+	height: 13px;
+	margin: 1px;
+	border-width: 8px;
+	border-top-color: transparent;
+	border-left-color: transparent;
+}
+
+@-webkit-keyframes spin
+                   {
+	                   from { -webkit-transform: rotate(0deg); opacity: 0.4; }
+50%  { -webkit-transform: rotate(180deg); opacity: 1; }
+to   { -webkit-transform: rotate(360deg); opacity: 0.4; }
+	}
+
+@-moz-keyframes spin
+                {
+	                from { -moz-transform: rotate(0deg); opacity: 0.4; }
+50%  { -moz-transform: rotate(180deg); opacity: 1; }
+to   { -moz-transform: rotate(360deg); opacity: 0.4; }
+	}
+
+@-ms-keyframes spin
+               {
+	               from { -ms-transform: rotate(0deg); opacity: 0.4; }
+50%  { -ms-transform: rotate(180deg); opacity: 1; }
+to   { -ms-transform: rotate(360deg); opacity: 0.4; }
+	}
+
+@-o-keyframes spin
+              {
+	              from { -o-transform: rotate(0deg); opacity: 0.4; }
+50%  { -o-transform: rotate(180deg); opacity: 1; }
+to   { -o-transform: rotate(360deg); opacity: 0.4; }
+	}
+
+@keyframes spin
+           {
+	           from { transform: rotate(0deg); opacity: 0.2; }
+50%  { transform: rotate(180deg); opacity: 1; }
+to   { transform: rotate(360deg); opacity: 0.2; }
+	}
+
+/* =============================================================================
+Typography
+========================================================================== */
+a {
+	text-decoration: none;
+	.transition-all(@transition-time);
+
+	&:hover {
+		text-shadow: 0 0 4px #d2d2d2;
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway";
+	font-weight: 400;
+
+	a {
+		text-decoration: none;
+		color: @grayDark;
+		&:hover {
+			text-shadow: 0 0 14px #e2e2e2;
+		}
+	}
+}
+
+.subtitle, .pos-subtitle {
+	color: #6D6D6D;
+	font-weight: 600;
+}
+h1 {
+	font-size: 3em;
+	margin: 0.67em 0;
+}
+
+h2 {
+	font-size: 2.6em;
+	margin: 0.83em 0;
+}
+
+h3 {
+	font-size: 2.3em;
+	margin: 1em 0;
+}
+
+h4 {
+	font-size: 2em;
+	margin: 1.33em 0;
+}
+
+h5 {
+	font-size: 1.8em;
+	margin: 1.67em 0;
+}
+
+h6 {
+	font-size: 1.5em;
+	margin: 2.33em 0;
+}
+
+/* UL styles */
+
+//checkboxes ul.check
+ul.check {
+	li {
+		&:before {
+			.icon-ascii("");
+			margin-right: @border-radius;
+		}
+	}
+}
+
+.social-button {
+	font-size: 7em;
+	color: #4B4B4B;
+	text-shadow: 0 3px #858585, 0 -11px 49px #D5D5D5;
+	.transition(text-shadow @transition-time);
+	&:hover {
+		text-shadow: 0 3px #d9d9d9, 0 -11px 49px #2d2d2d;
+	}
+}
+
+.teaser-circle {
+	#gradient > .vertical(#d9d9d9, #9C9C9C);
+	padding: 3em;
+	max-width: 17em;
+	.border-box;
+	.rounded-corners(50%);
+	.centred;
+	border: 1px solid #8B8888;
+	border-bottom-color: #575757;
+
+	&:hover {
+		.box-shadow(inset 0 5px 25px #FFFFFF);
+		.scale(1.1);
+		#gradient > .vertical(#d9d9d9, #B9B9B9);
+	}
+	h3 {
+		margin: 0;
+		font-weight: 500;
+		color: #4D4D4D;
+		font-size: 1.5em;
+		text-shadow: 0 1px #CCC;
+	}
+
+	i {
+		font-size: 7em;
+		color: #AFAFAF;
+		text-shadow: 0 3px #858585, 0 -11px 49px #D5D5D5;
+	}
+}

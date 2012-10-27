@@ -1,0 +1,117 @@
+/*------------------------------------------------------------------------------------------------------------------------
+	Author: Sean Goresht
+	www: http://seangoresht.com/
+	github: https://github.com/srsgores
+	twitter: http://twitter.com/S.Goresht
+	
+	Licensed under the GNU Public License
+	
+	=============================================================================
+	Filename:  media queries.less
+	=============================================================================
+	
+--------------------------------------------------------------------------------------------------------------------- */
+/* =============================================================================
+Media Queries
+========================================================================== */
+
+//six-column grid
+@media screen and (max-width: 80em) {
+	#menu-drawer-content {
+		position: relative;
+		right: 0;
+		top: 0;
+	}
+	body {
+		font-size: 90%;
+	}
+}
+
+//four-column grid
+@media screen and (max-width: 40em) {
+	.row .onecol {
+		width: 25%;
+	}
+	.row .twocol {
+		width: 25%;
+	}
+	.row .threecol {
+		width: 25%;
+	}
+	.row .fourcol {
+		width: 50%;
+	}
+	.row .fivecol {
+		width: 50%;
+	}
+	.row .sixcol {
+		width: 50%;
+	}
+	.row .sevencol {
+		width: 75%;
+	}
+	.row .eightcol {
+		width: 75%;
+	}
+	.row .ninecol {
+		width: 75%;
+	}
+	.row .tencol {
+		width: 100%;
+	}
+	.row .elevencol {
+		width: 100%;
+	}
+	body {
+		font-size: 85%;
+	}
+}
+
+//two-column grid
+@media screen and (max-width: 20em) {
+	.row .onecol {
+		width: 50%;
+	}
+	.row .twocol {
+		width: 50%;
+	}
+	.row .threecol {
+		width: 50%;
+	}
+	.row .fourcol {
+		width: 50%;
+	}
+	.row .fivecol {
+		width: 50%;
+	}
+	.row .sixcol {
+		width: 50%;
+	}
+	.row .sevencol {
+		width: 100%;
+	}
+	.row .eightcol {
+		width: 100%;
+	}
+	.row .ninecol {
+		width: 100%;
+	}
+	.row .tencol {
+		width: 100%;
+	}
+	.row .elevencol {
+		width: 100%;
+	}
+	body {
+		font-size: 80%;
+	}
+}
+
+//one-column grid
+@media screen and (max-width: 10em) {
+	.row {
+		.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+			width: 100%;
+		}
+	}
+}
