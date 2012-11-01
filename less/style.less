@@ -3,9 +3,9 @@
 	www: http://seangoresht.com/
 	github: https://github.com/srsgores
 	twitter: http://twitter.com/S.Goresht
-	
+
 	Licensed under the GNU Public License
-	
+
 	=============================================================================
 	Filename:  style.less
 	=============================================================================
@@ -13,15 +13,16 @@
 --------------------------------------------------------------------------------------------------------------------- */
 
 @import "imports/variables.less";
-@import "icomoon/icomoon.less";
 
-@import "imports/mixins.less";
-@import "imports/animate.less";
+@import "icomoon/icomoon.less";
+@import "mixins.less";
+//@import "imports/animate.less";
 
 @import "imports/reset.less";
-//@import "imports/alerts.less";
+
 @import "imports/button-groups.less";
 @import "imports/buttons.less";
+@import "imports/alerts.less";
 @import "imports/forms.less";
 @import "imports/tables.less";
 @import "imports/labels-badges.less";
@@ -30,7 +31,17 @@
 @import "imports/toastr.less";
 @import "imports/toastr-responsive.less";
 @import "imports/media-queries.less";
-
+//@import "imports/dropdowns.less";
+@import "imports/code.less";
+@import "imports/mail.less";
+@import "imports/calendar.less";
+@import "imports/breadcrumbs.less";
+@import "imports/pagination.less";
+@import "imports/popovers.less";
+@import "imports/modals.less";
+@import "imports/pager.less";
+/*@import "imports/thumbnails.less";
+@import "imports/wells.less";*/
 /* Layout
 ----------------------------------------------------------------------------------------------------*/
 .row {
@@ -107,10 +118,10 @@
 ----------------------------------------------------------------------------------------------------*/
 body {
 /* 16px / 24px */
-	font-size: @baseFontSize / 16 * 1em;
+	font-size: @baseFontSize * 1em;
 	font-family: @sansFontFamily;
-	line-height: @line / @em;
-	.box-shadow(#000 0 4em 15em 0 inset);
+	line-height: 1.5;
+	//.box-shadow(#000 0 4em 15em 0 inset);
 	color: @text-colour;
 	-webkit-font-smoothing: antialiased;
 }
@@ -121,10 +132,6 @@ hgroup.title {
 		margin: 0;
 		font-size: 4em;
 	}
-}
-h1, h2, h3, h4, h5, h6 {
-	font-family: @headingsFontFamily;
-	font-weight: @headingsFontWeight;
 }
 
 a {
@@ -245,10 +252,7 @@ article {
 
 header {
 	border-bottom: 1px solid #2E2E2E;
-//font-family: Raleway;
-	.box-shadow(inset 0px -15px 29px -15px black);
 	z-index: 99999; //over 9000!
-	background: #252525;
 	#menu {
 		ul {
 			padding: 0;
@@ -262,36 +266,6 @@ header {
 		}
 		.border-box;
 		.rounded-corners(@border-radius);
-		li {
-			display: inline-block;
-			a {
-				&:active {
-					.box-shadow(0, 0, 10px, #CCC);
-				}
-				&:hover, &.active {
-					.opacity(100);
-					text-shadow: 0 0 2px white;
-					background: rgba(0, 0, 0, 0.37);
-				}
-				.opacity(80);
-				.transition-all(@transition-time);
-				border-right: 1px solid #242424;
-				text-decoration: none;
-				color: #969696;
-				padding: 1em;
-				text-shadow: 0 0 3px black;
-			}
-			&:first-child {
-				a {
-					border-left: 1px solid #242424;
-				}
-			}
-			&:last-child {
-				a {
-				/*.rounded-corners-right(@border-radius);*/
-				}
-			}
-		}
 	}
 }
 
@@ -305,10 +279,7 @@ footer {
 		margin: 0;
 		padding: 0;
 	}
-//#gradient > .vertical(#535353, #5D5D5D);
 	padding: 0;
-	border-bottom: 1px solid #272727;
-	.box-shadow(inset 0 0 30px black, inset 0 -11px 11px -14px black);
 }
 h1.showcase {
 	font-size: 5em;
@@ -456,9 +427,9 @@ a {
 	}
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Raleway";
-	font-weight: 400;
-
+	margin-bottom: @border-radius;
+	font-family: @headingsFontFamily;
+	font-weight: @headingsFontWeight;
 	a {
 		text-decoration: none;
 		color: @grayDark;
@@ -479,27 +450,27 @@ h1 {
 
 h2 {
 	font-size: 2.6em;
-	margin: 0.83em 0;
+	margin: 0.4em 0;
 }
 
 h3 {
 	font-size: 2.3em;
-	margin: 1em 0;
+	margin: 0.2em 0;
 }
 
 h4 {
 	font-size: 2em;
-	margin: 1.33em 0;
+	margin: 0.2em 0;
 }
 
 h5 {
 	font-size: 1.8em;
-	margin: 1.67em 0;
+	margin: 0.2em 0;
 }
 
 h6 {
 	font-size: 1.5em;
-	margin: 2.33em 0;
+	margin: 0.2em 0;
 }
 
 /* UL styles */
@@ -508,7 +479,7 @@ h6 {
 ul.check {
 	li {
 		&:before {
-			.icon-ascii("");
+			.right-icon("");
 			margin-right: @border-radius;
 		}
 	}
@@ -552,4 +523,8 @@ ul.check {
 		color: #AFAFAF;
 		text-shadow: 0 3px #858585, 0 -11px 49px #D5D5D5;
 	}
+}
+
+.separator {
+	margin: 2.3em 0 2em;
 }

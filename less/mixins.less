@@ -1,10 +1,3 @@
-/**
-* @package   yoo_master
-* @author    YOOtheme http://www.yootheme.com
-* @copyright Copyright (C) YOOtheme GmbH
-* @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
-*/
-
 /*------------------------------------------------------------------------------------------------------------------------
 
     Author: Sean Goresht
@@ -116,9 +109,6 @@ Site-wide rules
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-// UTILITY MIXINS
-// --------------------------------------------------
-
 // Clearfix
 // --------
 // For clearing floats like a boss h5bp.com/q
@@ -127,7 +117,9 @@ Site-wide rules
 	&:before,
 	&:after {
 		display: table;
-		content: "";
+		content: ""; // Fixes Opera/contenteditable bug:
+	// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
 	}
 	&:after {
 		clear: both;
@@ -136,7 +128,7 @@ Site-wide rules
 
 // Webkit-style focus
 // ------------------
-.tab-focus(){ // Default
+.tab-focus() { // Default
 	outline: thin dotted #333; // Webkit
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
@@ -144,7 +136,7 @@ Site-wide rules
 
 // Center-align a block level element
 // ----------------------------------
-.center-block(){
+.center-block() {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -193,11 +185,14 @@ Site-wide rules
 
 // Placeholder text
 // -------------------------
-.placeholder(@color: @placeholderText){
-	:-moz-placeholder {
+.placeholder(@color: @placeholderText) {
+	&:-moz-placeholder {
 		color: @color;
 	}
-	::-webkit-input-placeholder {
+	&:-ms-input-placeholder {
+		color: @color;
+	}
+	&::-webkit-input-placeholder {
 		color: @color;
 	}
 }
@@ -229,26 +224,34 @@ Site-wide rules
 .input-block-level {
 	display: block;
 	width: 100%;
-	min-height: 28px; // Make inputs at least the height of their button counterpart
+	min-height: @inputHeight; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
 	.box-sizing(border-box); // Makes inputs behave like true block-level elements
 }
 
 // Mixin for form field states
-.formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5){ // Set the text color
+.formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) { // Set the text color
 	> label,
 	.help-block,
 	.help-inline {
 		color: @textColor;
 	}
 // Style inputs accordingly
+	.checkbox,
+	.radio,
 	input,
 	select,
 	textarea {
 		color: @textColor;
+	}
+	input,
+	select,
+	textarea {
 		border-color: @borderColor;
+		.box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
 		&:focus {
 			border-color: darken(@borderColor, 10%);
-			.box-shadow(0 0 6px lighten(@borderColor, 20%));
+			@shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px lighten(@borderColor, 20%);
+			.box-shadow(@shadow);
 		}
 	}
 // Give a small background color for input-prepend/-append
@@ -525,8 +528,6 @@ Site-wide rules
 	border-bottom: 1px solid @white;
 }
 
-// Button backgrounds
-// ------------------
 .buttonBackground(@startColor, @endColor){ // gradientBar will set the background to a pleasing blend of these, to support IE<=9
 	.gradientBar(@startColor, @endColor);
 	*background-color: @endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
@@ -535,6 +536,7 @@ Site-wide rules
 		background-color: @endColor;
 		*background-color: darken(@endColor, 5%);
 	}
+	color: contrast(@startColor, @btnDarkTextColour, @btnLightTextColour);
 
 // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
 	&:active,
@@ -940,7 +942,41 @@ Site-wide rules
 .box-sizing (content-box){.content-box-sizing;}
 
 /* other stuff */
+
 .shadowed {
 	text-shadow: 0 0 50px rgba(0, 0, 0, 0.68), -15px 0 14px black;
 	color: #3C3B3B;
+}
+// FONTS
+// --------------------------------------------------
+
+#font {
+	#family {
+		.serif() {
+			font-family: @serifFontFamily;
+		}
+		.sans-serif() {
+			font-family: @sansFontFamily;
+		}
+		.monospace() {
+			font-family: @monoFontFamily;
+		}
+	}
+	.shorthand(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+		font-size: @size;
+		font-weight: @weight;
+		line-height: @lineHeight;
+	}
+	.serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+		#font > #family > .serif;
+		#font > .shorthand(@size, @weight, @lineHeight);
+	}
+	.sans-serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+		#font > #family > .sans-serif;
+		#font > .shorthand(@size, @weight, @lineHeight);
+	}
+	.monospace(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+		#font > #family > .monospace;
+		#font > .shorthand(@size, @weight, @lineHeight);
+	}
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="2" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Sean\Documents\University\University of Calgary (4th Year)\CPSC 471\Assignments\Assignment 4" />
+  </component>
   <component name="ProjectResources">
     <default-html-doctype>jar:file:\C:\Program Files (x86)\JetBrains\PhpStorm 5.0.1\lib\webide.jar!\resources\html5-schema\html5.rnc</default-html-doctype>
   </component>
