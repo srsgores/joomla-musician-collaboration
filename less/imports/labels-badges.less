@@ -8,7 +8,7 @@
 .badge {
   font-size: @baseFontSize * .846;
   font-weight: bold;
-  line-height: 14px; // ensure proper line-height if floated
+  line-height: @baseLineHeight; // ensure proper line-height if floated
   color: @white;
   vertical-align: baseline;
   white-space: nowrap;
@@ -17,7 +17,7 @@
 }
 // Set unique padding and border-radii
 .label {
-  padding: 1px 4px 2px;
+  padding: 1px @border-radius 2px;
   .border-radius(3px);
 }
 .badge {

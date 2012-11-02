@@ -20,10 +20,14 @@
 /* =============================================================================
 Site-wide rules
 ========================================================================== */
+.pie() {
+	behavior: url(PIE.htc);
+}
 .padding-fix {
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
+	.pie();
 }
 
 .rounded-corners(@border-radius){
@@ -281,6 +285,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow;
 	-o-box-shadow: @shadow;
 	box-shadow: @shadow;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2){
@@ -289,6 +294,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2;
 	-o-box-shadow: @shadow, @shadow2;
 	box-shadow: @shadow, @shadow2;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3){
@@ -297,6 +303,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3;
 	-o-box-shadow: @shadow, @shadow2, @shadow3;
 	box-shadow: @shadow, @shadow2, @shadow3;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4){
@@ -305,6 +312,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
+	.pie();
 }
 
 
@@ -314,6 +322,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5){
@@ -322,6 +331,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6){
@@ -330,6 +340,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6;
+	.pie();
 }
 
 .box-shadow(@shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6, @shadow7){
@@ -338,6 +349,7 @@ Site-wide rules
 	-khtml-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6, @shadow7;
 	-o-box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6, @shadow7;
 	box-shadow: @shadow, @shadow2, @shadow3, @shadow4, @shadow5, @shadow6, @shadow7;
+	.pie();
 }
 
 // Transitions
@@ -451,7 +463,7 @@ Site-wide rules
 		background-image: -o-linear-gradient(left, @startColor, @endColor); // Opera 11.10
 		background-image: linear-gradient(left, @startColor, @endColor); // Le standard
 		background-repeat: repeat-x;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
+		.pie();
 	}
 	.vertical(@startColor: #555, @endColor: #333){
 		background-color: mix(@startColor, @endColor, 60%);
@@ -462,7 +474,7 @@ Site-wide rules
 		background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
 		background-image: linear-gradient(top, @startColor, @endColor); // The standard
 		background-repeat: repeat-x;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
+		.pie();
 	}
 	.directional(@startColor: #555, @endColor: #333, @deg: 45deg){
 		background-color: @endColor;
@@ -482,7 +494,7 @@ Site-wide rules
 		background-image: -o-linear-gradient(@startColor, @midColor @colorstop, @endColor);
 		background-image: linear-gradient(@startColor, @midColor @colorstop, @endColor);
 		background-repeat: no-repeat;
-		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr='%d', endcolorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down, gets no color-stop at all for proper fallback
+		.pie();
 	}
 	.radial(@innerColor: #555, @outerColor: #333){
 		background-color: @outerColor;
@@ -521,11 +533,8 @@ Site-wide rules
 // to negative-margin away, but so it goes.
 	*width: 100%;
 	height: 1px;
-	margin: ((@baseLineHeight / 2) - 1) 1px; // 8px 1px
-	*margin: -5px 0 5px;
 	overflow: hidden;
-	background-color: #e5e5e5;
-	border-bottom: 1px solid @white;
+	border-bottom: 1px solid #BDBDBD;
 }
 
 .buttonBackground(@startColor, @endColor){ // gradientBar will set the background to a pleasing blend of these, to support IE<=9
@@ -536,7 +545,7 @@ Site-wide rules
 		background-color: @endColor;
 		*background-color: darken(@endColor, 5%);
 	}
-	color: contrast(@startColor, @btnDarkTextColour, @btnLightTextColour);
+	color: contrast(@endColor, @btnDarkTextColour, @btnLightTextColour);
 
 // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
 	&:active,
@@ -979,4 +988,17 @@ Site-wide rules
 		#font > #family > .monospace;
 		#font > .shorthand(@size, @weight, @lineHeight);
 	}
+}
+//mixin for setting font size.  Curteosy of https://github.com/csswizardry/CSS-Guidelines#layout
+.font-size(@font-size, @baseFontSize: 16px) {
+	font-size: @font-size * 1px;
+	font-size: @font-size / @baseFontSize * 1rem;
+}
+
+.alert-icon(@backgroundColour, @borderColour, @icon-ascii) {
+	color: lighten(@backgroundColour, 40%);
+	text-shadow: 0 0 14px fade(saturate(@borderColour, 50%), 40%), 0 1px #FFF;
+	.left-icon(@icon-ascii);
+	font-size: 2.8em;
+	padding-right: 0.2em;
 }

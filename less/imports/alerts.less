@@ -6,7 +6,7 @@
 // -------------------------
 
 .alert, .box-warning, .box-info, .box-hint, .box-error, .box-download, .box-success {
-	padding: 8px 35px 8px 14px;
+	padding: @paddingSmall @padding;
 	margin-bottom: @baseLineHeight;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 	background-color: @warningBackground;
@@ -15,49 +15,53 @@
 	color: @warningText;
 }
 
-.alert h4 {
-	margin: 0;
-}
-
-// Adjust close link position
-.alert .close {
-	position: relative;
-	top: -2px;
-	right: -21px;
-	line-height: @baseLineHeight;
-}
-
-// Alternate styles
-// -------------------------
-
-.alert-success, .box-success {
-	background-color: @successBackground;
-	border-color: @successBorder;
-	color: @successText;
-
-	&:before {
-		.left-icon("");
+.alert {
+	.title {
+		font-size: 1.2em;
+		border-bottom: 1px solid rgba(204, 204, 204, 0.41);
+		line-height: 1;
 	}
-}
-
-.alert-danger,
-.alert-error, .box-error, .box-warning {
-	background-color: @errorBackground;
-	border-color: @errorBorder;
-	color: @errorText;
-
-	&:before {
-		.left-icon("");
+	h4 {
+		margin: 0;
 	}
+	.close {
+		position: relative;
+		top: -2px;
+		right: -21px;
+		line-height: @baseLineHeight;
+	}
+	.alert-success, .box-success {
+		background-color: @successBackground;
+		border-color: @successBorder;
+		color: @successText;
+
+		&:before {
+			.left-icon("");
+		}
+	}
+	.alert-danger, .alert-error, .box-error, .box-warning {
+		 background-color: @errorBackground;
+		 border-color: @errorBorder;
+		 color: @errorText;
+
+		 &:before {
+			 .left-icon("");
+		 }
+	 }
 }
+
+
 
 .alert-info, .box-info {
 	background-color: @infoBackground;
 	border-color: @infoBorder;
 	color: @infoText;
-
-	&:before {
-		.left-icon("");
+	.title {
+		&:before {
+			.alert-icon(@infoBackground, @infoBorder, @icon-info);
+/*			color: rgba(101, 154, 211, 0.44);
+			text-shadow: 0 0px 8px rgba(26, 16, 255, 0.03), 0 1px white;*/
+		}
 	}
 }
 
@@ -71,14 +75,12 @@
 	}
 }
 
-
-
 // Block alerts
 // -------------------------
 
 .alert-block {
-	padding-top: 14px;
-	padding-bottom: 14px;
+	padding-top: @baseLineHeight;
+	padding-bottom: @baseLineHeight;
 }
 
 .alert-block > p,
@@ -87,5 +89,5 @@
 }
 
 .alert-block p + p {
-	margin-top: 5px;
+	margin-top: @paddingSmall;
 }

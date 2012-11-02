@@ -5,18 +5,19 @@
 // Inline and block code styles
 code,
 pre {
-	padding: 0 3px 2px;
+	padding: 0 @paddingMini;
 	#font > #family > .monospace;
 	font-size: @baseFontSize - 2;
 	color: @grayDark;
-	.border-radius(3px);
+	.rounded-corners(@border-radius);
 }
 
 // Inline code
 code {
-	padding: 2px 4px;
+	padding: 0 @border-radius;
 	color: #d14;
-	background-color: #f7f7f9;
+	text-shadow: 0 1px @white;
+	background-color: @codeColor;
 	border: 1px solid #e1e1e8;
 }
 
@@ -34,7 +35,7 @@ pre {
 	background-color: #f5f5f5;
 	border: 1px solid #ccc; // fallback for IE7-8
 	border: 1px solid rgba(0, 0, 0, .15);
-	.border-radius(4px); // Make prettyprint styles more spaced out for readability
+	.rounded-corners(@border-radius); // Make prettyprint styles more spaced out for readability
 	&.prettyprint {
 		margin-bottom: @baseLineHeight;
 	}

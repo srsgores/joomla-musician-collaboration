@@ -54,7 +54,7 @@ table {
 .table-condensed {
 	th,
 	td {
-		padding: 4px 5px;
+		padding: @border-radius @paddingSmall;
 	}
 }
 
@@ -66,7 +66,7 @@ table {
 	border-collapse: separate; // Done so we can round those corners!
 	*border-collapse: collapse; // IE7 can't round corners anyway
 	border-left: 0;
-	.border-radius(4px);
+	.rounded-corners(@border-radius);
 	th,
 	td {
 		border-left: 1px solid @tableBorder;
@@ -86,31 +86,31 @@ table {
 // For first th or td in the first row in the first thead or tbody
 	thead:first-child tr:first-child th:first-child,
 	tbody:first-child tr:first-child td:first-child {
-		-webkit-border-top-left-radius: 4px;
-		border-top-left-radius: 4px;
-		-moz-border-radius-topleft: 4px;
+		-webkit-border-top-left-radius: @border-radius;
+		border-top-left-radius: @border-radius;
+		-moz-border-radius-topleft: @border-radius;
 	}
 	thead:first-child tr:first-child th:last-child,
 	tbody:first-child tr:first-child td:last-child {
-		-webkit-border-top-right-radius: 4px;
-		border-top-right-radius: 4px;
-		-moz-border-radius-topright: 4px;
+		-webkit-border-top-right-radius: @border-radius;
+		border-top-right-radius: @border-radius;
+		-moz-border-radius-topright: @border-radius;
 	}
 // For first th or td in the first row in the first thead or tbody
 	thead:last-child tr:last-child th:first-child,
 	tbody:last-child tr:last-child td:first-child,
 	tfoot:last-child tr:last-child td:first-child {
-		.border-radius(0 0 0 4px);
-		-webkit-border-bottom-left-radius: 4px;
-		border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
+		.border-radius(0 0 0 @border-radius);
+		-webkit-border-bottom-left-radius: @border-radius;
+		border-bottom-left-radius: @border-radius;
+		-moz-border-radius-bottomleft: @border-radius;
 	}
 	thead:last-child tr:last-child th:last-child,
 	tbody:last-child tr:last-child td:last-child,
 	tfoot:last-child tr:last-child td:last-child {
-		-webkit-border-bottom-right-radius: 4px;
-		border-bottom-right-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
+		-webkit-border-bottom-right-radius: @border-radius;
+		border-bottom-right-radius: @border-radius;
+		-moz-border-radius-bottomright: @border-radius;
 	}
 
 // Special fixes to round the left border on the first td/th
@@ -118,17 +118,17 @@ table {
 	caption + tbody tr:first-child td:first-child,
 	colgroup + thead tr:first-child th:first-child,
 	colgroup + tbody tr:first-child td:first-child {
-		-webkit-border-top-left-radius: 4px;
-		border-top-left-radius: 4px;
-		-moz-border-radius-topleft: 4px;
+		-webkit-border-top-left-radius: @border-radius;
+		border-top-left-radius: @border-radius;
+		-moz-border-radius-topleft: @border-radius;
 	}
 	caption + thead tr:first-child th:last-child,
 	caption + tbody tr:first-child td:last-child,
 	colgroup + thead tr:first-child th:last-child,
 	colgroup + tbody tr:first-child td:last-child {
-		-webkit-border-top-right-radius: 4px;
-		border-top-right-radius: 4px;
-		-moz-border-right-topleft: 4px;
+		-webkit-border-top-right-radius: @border-radius;
+		border-top-right-radius: @border-radius;
+		-moz-border-right-topleft: @border-radius;
 	}
 
 }

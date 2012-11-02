@@ -24,9 +24,9 @@
 	width: 0;
 	height: 0;
 	vertical-align: top;
-	border-top: 4px solid @black;
-	border-right: 4px solid transparent;
-	border-left: 4px solid transparent;
+	border-top: @border-radius solid @black;
+	border-right: @border-radius solid transparent;
+	border-left: @border-radius solid transparent;
 	content: @icon-arrow-down;
 }
 
@@ -38,6 +38,8 @@
 
 // The dropdown menu (ul)
 // ----------------------
+
+//this is a problem now!
 .dropdown-menu {
 	position: absolute;
 	top: 100%;
@@ -45,8 +47,8 @@
 	z-index: @zindexDropdown;
 	display: none; // none by default, but block on "open" of the menu
 	float: left;
-	min-width: 160px;
-	padding: 5px 0;
+	min-width: 8em;
+	padding: @border-radius 0;
 	margin: 2px 0 0; // override default ul
 	list-style: none;
 	background-color: @dropdownBackground;
@@ -54,11 +56,9 @@
 	border: 1px solid @dropdownBorder;
 	*border-right-width: 2px;
 	*border-bottom-width: 2px;
-	.border-radius(6px);
-	.box-shadow(0 5px 10px rgba(0,0,0,.2));
-	-webkit-background-clip: padding-box;
-	-moz-background-clip: padding;
-	background-clip: padding-box; // Aligns the dropdown menu to right
+	.rounded-corners(@border-radius);
+	.box-shadow(0 @paddingSmall 10px rgba(0,0,0,.2));
+	.padding-box-sizing();
 	&.pull-right {
 		right: 0;
 		left: auto;
@@ -66,13 +66,15 @@
 
 // Dividers (basically an hr) within the dropdown
 	.divider {
-		.nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+		.nav-divider();
+		margin-top: @dropdownDividerTop;
+		margin-bottom: @dropdownDividerBottom;
 	}
 
 // Links within the dropdown menu
 	a {
 		display: block;
-		padding: 3px 20px;
+		padding: 3px 1.2em;
 		clear: both;
 		font-weight: normal;
 		line-height: @baseLineHeight;
@@ -144,7 +146,7 @@
 .navbar-fixed-bottom .dropdown { // Reverse the caret
 	.caret {
 		border-top: 0;
-		border-bottom: 4px solid @black;
+		border-bottom: @border-radius solid @black;
 		content: @icon-arrow-down;
 	}
 // Different positioning for bottom up menu
@@ -181,9 +183,9 @@
 	height: 0;
 	border-color: transparent;
 	border-style: solid;
-	border-width: 5px 0 5px 5px;
+	border-width: @paddingSmall 0 @paddingSmall @paddingSmall;
 	border-left-color: darken(@dropdownBackground, 20%);
-	margin-top: 5px;
+	margin-top: @paddingSmall;
 	margin-right: -10px;
 }
 
@@ -193,7 +195,7 @@
 
 // Tweak nav headers
 // -----------------
-// Increase padding from 15px to 20px on sides
+// Increase padding from 15px to 1.2em on sides
 .dropdown .dropdown-menu .nav-header {
 	padding-left: 1.3em;
 	padding-right: 1.3em;

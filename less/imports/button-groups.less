@@ -12,7 +12,7 @@
 
 // Space out series of button groups
 .btn-group + .btn-group {
-	margin-left: 5px;
+	margin-left: @paddingSmall;
 }
 
 // Optional: Group multiple button groups together for a toolbar
@@ -27,7 +27,7 @@
 	.btn + .btn,
 	.btn-group + .btn,
 	.btn + .btn-group {
-		margin-left: 5px;
+		margin-left: @paddingSmall;
 	}
 }
 
@@ -38,7 +38,7 @@
 }
 
 .btn-group > .btn + .btn {
-	margin-left: -1px;
+	margin-left: -2px;
 }
 
 .btn-group > .btn,
@@ -101,18 +101,18 @@
 
 // Give the line between buttons some depth
 .btn-group > .btn + .dropdown-toggle {
-	padding: 0.99em;
+	padding: 0.52em;
 	.box-shadow(~"inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
-	*padding-top: 0.99em;
+	*padding-top: 0.52em;
 }
 
 .btn-group > .btn-mini + .dropdown-toggle {
 	padding: 1em;
-	*padding: 0.99em;
+	*padding: 0.52em;
 }
 
 .btn-group > .btn-small + .dropdown-toggle {
-	*padding-top: 5px;
+	*padding-top: @paddingSmall;
 	*padding-bottom: @border-radius;
 }
 
@@ -154,7 +154,7 @@
 
 // Reposition the caret
 .btn .caret {
-	margin-top: 8px;
+	vertical-align: middle;
 	margin-left: 0;
 }
 
@@ -166,14 +166,14 @@
 }*/
 
 .btn-large .caret {
-	border-left-width: 5px;
-	border-right-width: 5px;
-	border-top-width: 5px;
+	border-left-width: @paddingSmall;
+	border-right-width: @paddingSmall;
+	border-top-width: @paddingSmall;
 }
 
 // Upside down carets for .dropup
 .dropup .btn-large .caret {
-	border-bottom: 5px solid @black;
+	border-bottom: @paddingSmall solid @black;
 	border-top: 0;
 }
 

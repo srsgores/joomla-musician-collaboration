@@ -6,6 +6,7 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<meta name = "description" content = "">
 	<meta name = "author" content = "">
+	<!--[if gte IE 7]><script src = "../../less/icomoon/lte-ie7.js"></script><![endif]-->
 
 	<!-- Le styles -->
 	<link rel = "stylesheet" href = "../../css/style.css"/>
@@ -20,7 +21,7 @@
 
 </head>
 
-<body data-spy = "scroll" data-target = ".bs-docs-sidebar">
+<body data-spy = "scroll" data-target = ".sidebar-fixed">
 
 <!-- Navbar
     ================================================== -->
@@ -66,10 +67,10 @@
 <!-- Subhead
 ================================================== -->
 <header class = "jumbotron subhead" id = "overview">
-	<div class = "container">
-		<h1>Base CSS</h1>
+	<div class = "row">
+		<hgroup><h1 class = "title">Typography and Base CSS</h1>
 
-		<p class = "lead">Fundamental HTML elements styled and enhanced with extensible classes.</p>
+			<h2 class = "subtitle">Fundamental HTML elements styled and enhanced with extensible classes.</h2></hgroup>
 	</div>
 </header>
 
@@ -79,8 +80,9 @@
 <!-- Docs nav
     ================================================== -->
 <div class = "row">
-<div class = "threecol bs-docs-sidebar">
+<div class = "threecol sidebar-fixed">
 	<ul class = "nav nav-list bs-docs-sidenav">
+		<li><a href = "#intro"><i class = "icon-chevron-right"></i> Introduction</a></li>
 		<li><a href = "#typography"><i class = "icon-chevron-right"></i> Typography</a></li>
 		<li><a href = "#code"><i class = "icon-chevron-right"></i> Code</a></li>
 		<li><a href = "#tables"><i class = "icon-chevron-right"></i> Tables</a></li>
@@ -90,9 +92,71 @@
 		<li><a href = "#icons"><i class = "icon-chevron-right"></i> Icons by Glyphicons</a></li>
 	</ul>
 </div>
-<div class = "ninecol">
+<div class = "ninecol last">
 
+<section id = "intro">
+	<h1 class = "title">Introduction</h1>
 
+	<p class = "dropcap">
+		Twitter Bootstrap, which has recently exploded on the web, offers an amazing set of styles, but of which are
+		unfortunately over 2000 lines of code. It's a framework designed to help people code nice UIs in seconds.
+		There are only a couple problems:
+	<ol>
+		<li><strong>Sizes and proportions are all set in <code>px</code></strong></li>
+		<li>Ids are used where classes should be (Ids should be avoided)</li>
+		<li>It's not fully responsive (why to we need files for media queries?)</li>
+		<li>It lacks extensibility. Variables are not used where they should be (4px is everywhere. This should
+			be a variable!)
+		</li>
+	</ol>
+	<p>This version of Bootstrap aims to solve these issues by doing the following:</p>
+	<ul>
+		<li>
+			<h2>Sizes in PX</h2>
+
+			<p class = "description">To address this issue, I've replaced all px occurences (except where needed
+				like baseFontSize) with <code>em</code>s. This allows to code to properly scale,
+				across devices.</p>
+
+			<div
+					class = "alert alert-info"><h2 class = "title">Still think <code>px</code> are better than
+				<code>em</code>?</h2>
+
+				<p class = "description">Read up online <a href =
+						                                           "https://github.com/csswizardry/CSS-Guidelines#layout">here</a>
+					or
+					<a href = "http://css-tricks.com/forums/discussion/15295/responsive-web-design-when-to-use-px-vs-on-margins-and-padding/p1">here</a>,
+					or
+					<a href = "http://stackoverflow.com/questions/6857010/em-vs-px-and-cross-browser-compatibility">h
+						ere</a>. It's compatible, proven, and <strong>it works</strong>.</p></div>
+		</li>
+		<li>
+			<h2>Responsive Design</h2>
+
+			<p class = "description">Instead of using Bootstrap's grid system, I've taken it out and replaced it
+				in favour of a flexible, folding grid system like the Golden Grid System. This ensures that any
+				design scales perfectly for any screen width.</p>
+
+			<p class = "alert alert-question">Want a smaller width? Just use <code>max-width</code> on your
+				<code>container</code> class.</p>
+
+			<p>In addition, we use responsive design to have folding gutters, and for notifications (toastr) and
+				Zoo (optional).</p>
+		</li>
+		<li>
+			<h2>Ids vs Classes</h2>
+
+			<p class = "description">Ids do not give us the flexibility we need that classes provide. All ids
+				taken out, except for javascript purposes.</p>
+		</li>
+		<li>
+			<h2>Extensibility and LESS</h2>
+
+			<p class = "description">Constants have been replaced with variables. Get more customization now!</p>
+		</li>
+	</ul>
+	</p>
+</section>
 <!-- Typography
         ================================================== -->
 <section id = "typography">
@@ -104,7 +168,7 @@
 
 <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<h1>h1. Heading 1</h1>
 
 	<h2>h2. Heading 2</h2>
@@ -121,7 +185,7 @@
 	<strong>20px</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code>
 	(paragraphs) receive a bottom margin of half their line-height (10px by default).</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient
 		montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
 
@@ -138,7 +202,7 @@
 
 <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p class = "lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non
 		commodo luctus.</p>
 </div>
@@ -164,7 +228,7 @@
 <p>For de-emphasizing inline or blocks of text,
 	<small>use the small tag.</small>
 </p>
-<div class = "bs-docs-example">
+<div class = "box">
 	<p>
 		<small>This line of text is meant to be treated as fine print.</small>
 	</p>
@@ -179,7 +243,7 @@
 
 <p>For emphasizing a snippet of text with a heavier font-weight.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
 </div>
 <pre class = "prettyprint">&lt;strong&gt;rendered as bold text&lt;/strong&gt;</pre>
@@ -188,7 +252,7 @@
 
 <p>For emphasizing a snippet of text with italics.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p>The following snippet of text is <em>rendered as italicized text</em>.</p>
 </div>
 <pre class = "prettyprint">&lt;em&gt;rendered as italicized text&lt;/em&gt;</pre>
@@ -201,7 +265,7 @@
 
 <p>Convey meaning through color with a handful of emphasis utility classes.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p class = "muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
 
 	<p class = "text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
@@ -234,7 +298,7 @@
 
 <p>For expanded text on long hover of an abbreviation, include the <code>title</code> attribute.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p>An abbreviation of the word attribute is <abbr title = "attribute">attr</abbr>.</p>
 </div>
 <pre class = "prettyprint">&lt;abbr title="attribute"&gt;attr&lt;/abbr&gt;</pre>
@@ -243,7 +307,7 @@
 
 <p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<p><abbr title = "HyperText Markup Language" class = "initialism">HTML</abbr> is the best thing since sliced bread.
 	</p>
 </div>
@@ -261,7 +325,7 @@
 
 <p>Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<address>
 		<strong>Twitter, Inc.</strong><br>
 		795 Folsom Ave, Suite 600<br>
@@ -300,7 +364,7 @@
 <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title = "HyperText Markup Language">HTML</abbr> as the quote.
 	For straight quotes we recommend a <code>&lt;p&gt;</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<blockquote>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
 	</blockquote>
@@ -320,7 +384,7 @@
 <p>Add <code>&lt;small&gt;</code> tag for identifying the source. Wrap the name of the source work in <code>
 	&lt;cite&gt;</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<blockquote>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
 		<small>Someone famous in <cite title = "Source Title">Source Title</cite></small>
@@ -337,7 +401,7 @@
 
 <p>Use <code>.pull-right</code> for a floated, right-aligned blockquote.</p>
 
-<div class = "bs-docs-example" style = "overflow: hidden;">
+<div class = "box" style = "overflow: hidden;">
 	<blockquote class = "pull-right">
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
 		<small>Someone famous in <cite title = "Source Title">Source Title</cite></small>
@@ -360,7 +424,7 @@
 
 <p>A list of items in which the order does <em>not</em> explicitly matter.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<ul>
 		<li>Lorem ipsum dolor sit amet</li>
 		<li>Consectetur adipiscing elit</li>
@@ -389,7 +453,7 @@
 
 <p>A list of items in which the order <em>does</em> explicitly matter.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<ol>
 		<li>Lorem ipsum dolor sit amet</li>
 		<li>Consectetur adipiscing elit</li>
@@ -411,7 +475,7 @@
 
 <p>A list of items with no <code>list-style</code> or additional left padding.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<ul class = "unstyled">
 		<li>Lorem ipsum dolor sit amet</li>
 		<li>Consectetur adipiscing elit</li>
@@ -440,7 +504,7 @@
 
 <p>A list of terms with their associated descriptions.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<dl>
 		<dt>Description lists</dt>
 		<dd>A description list is perfect for defining terms.</dd>
@@ -462,7 +526,7 @@
 
 <p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<dl class = "dl-horizontal">
 		<dt>Description lists</dt>
 		<dd>A description list is perfect for defining terms.</dd>
@@ -502,7 +566,7 @@
 
 	<p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>
 
-	<div class = "bs-docs-example">
+	<div class = "box">
 		For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 	</div>
 <pre class = "prettyprint linenums">
@@ -514,7 +578,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	<p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for
 		proper rendering.</p>
 
-	<div class = "bs-docs-example">
+	<div class = "box">
 		<pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
 	</div>
 <pre class = "prettyprint linenums" style = "margin-bottom: 9px;">
@@ -542,7 +606,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class <code>.table</code> to
 	any <code>&lt;table&gt;</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table">
 		<thead>
 		<tr>
@@ -593,7 +657,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Adds zebra-striping to any table row within the <code>&lt;tbody&gt;</code> via the <code>:nth-child</code> CSS
 	selector (not available in IE7-IE8).</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table table-striped">
 		<thead>
 		<tr>
@@ -635,7 +699,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Add borders and rounded corners to the table.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table table-bordered">
 		<thead>
 		<tr>
@@ -681,7 +745,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table table-hover">
 		<thead>
 		<tr>
@@ -722,7 +786,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Makes tables more compact by cutting cell padding in half.</p>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table table-condensed">
 		<thead>
 		<tr>
@@ -804,7 +868,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	</tr>
 	</tbody>
 </table>
-<div class = "bs-docs-example">
+<div class = "box">
 	<table class = "table">
 		<thead>
 		<tr>
@@ -965,7 +1029,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or
 	large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<fieldset>
 		<legend>Legend</legend>
 		<label>Label name</label>
@@ -1005,7 +1069,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an
 	extra-rounded text input.</p>
 
-<form class = "bs-docs-example form-search">
+<form class = "box form-search">
 	<input type = "text" class = "input-medium search-query">
 	<button type = "submit" class = "btn">Search</button>
 </form>
@@ -1020,7 +1084,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input type = "text" class = "input-small" placeholder = "Email">
 	<input type = "password" class = "input-small" placeholder = "Password">
 	<label class = "checkbox">
@@ -1049,7 +1113,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	<li>Add <code>.control-label</code> to the label</li>
 	<li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
 </ul>
-<form class = "bs-docs-example form-horizontal">
+<form class = "box form-horizontal">
 	<div class = "control-group">
 		<label class = "control-label" for = "inputEmail">Email</label>
 
@@ -1113,7 +1177,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Requires the use of a specified <code>type</code> at all times.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input type = "text" placeholder = "Text input">
 </form>
 <pre class = "prettyprint linenums">
@@ -1124,7 +1188,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<textarea rows = "3"></textarea>
 </form>
 <pre class = "prettyprint linenums">
@@ -1137,7 +1201,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	many.</p>
 <h4>Default (stacked)</h4>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<label class = "checkbox">
 		<input type = "checkbox" value = "">
 		Option one is this and that&mdash;be sure to include why it's great
@@ -1172,7 +1236,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<label class = "checkbox inline">
 		<input type = "checkbox" id = "inlineCheckbox1" value = "option1"> 1
 	</label>
@@ -1199,7 +1263,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<select>
 		<option>1</option>
 		<option>2</option>
@@ -1252,7 +1316,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Wrap an <code>.add-on</code> and an <code>input</code> with one of two classes to prepend or append text to an input.
 </p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-prepend">
 		<span class = "add-on">@</span>
 		<input class = "twocol" id = "prependedInput" type = "text" placeholder = "Username">
@@ -1279,7 +1343,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<div class = "input-prepend input-append">
 		<span class = "add-on">$</span>
 		<input class = "twocol" id = "appendedPrependedInput" type = "text">
@@ -1299,7 +1363,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) to an input.
 </p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-append">
 		<input class = "twocol" id = "appendedInputButton" type = "text">
 		<button class = "btn" type = "button">Go!</button>
@@ -1311,7 +1375,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
   &lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
 &lt;/div&gt;
 </pre>
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-append">
 		<input class = "twocol" id = "appendedInputButtons" type = "text">
 		<button class = "btn" type = "button">Search</button>
@@ -1330,7 +1394,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p></p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-append">
 		<input class = "twocol" id = "appendedDropdownButton" type = "text">
 
@@ -1363,7 +1427,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 &lt;/div&gt;
 </pre>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-prepend">
 		<div class = "btn-group">
 			<button class = "btn dropdown-toggle" data-toggle = "dropdown">Action <span class = "caret"></span></button>
@@ -1395,7 +1459,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 &lt;/div&gt;
 </pre>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "input-prepend input-append">
 		<div class = "btn-group">
 			<button class = "btn dropdown-toggle" data-toggle = "dropdown">Action <span class = "caret"></span></button>
@@ -1450,7 +1514,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h4>Search form</h4>
 
-<form class = "bs-docs-example form-search">
+<form class = "box form-search">
 	<div class = "input-append">
 		<input type = "text" class = "twocol search-query">
 		<button type = "submit" class = "btn">Search</button>
@@ -1482,7 +1546,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a block level element.</p>
 
-<form class = "bs-docs-example" style = "padding-bottom: 15px;">
+<form class = "box" style = "padding-bottom: 15px;">
 	<div class = "controls">
 		<input class = "input-block-level" type = "text" placeholder = ".input-block-level">
 	</div>
@@ -1493,7 +1557,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h4>Relative sizing</h4>
 
-<form class = "bs-docs-example" style = "padding-bottom: 15px;">
+<form class = "box" style = "padding-bottom: 15px;">
 	<div class = "controls docs-input-sizes">
 		<input class = "input-mini" type = "text" placeholder = ".input-mini">
 		<input class = "input-small" type = "text" placeholder = ".input-small">
@@ -1521,7 +1585,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Use <code>.onecol</code> to <code>.onecol2</code> for inputs that match the same sizes of the grid columns.</p>
 
-<form class = "bs-docs-example" style = "padding-bottom: 15px;">
+<form class = "box" style = "padding-bottom: 15px;">
 	<div class = "controls docs-input-sizes">
 		<input class = "onecol" type = "text" placeholder = ".onecol">
 		<input class = "twocol" type = "text" placeholder = ".twocol">
@@ -1568,7 +1632,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	spacing</strong>. It floats the inputs to collapse white-space, sets the proper margins, and the clears the float.
 </p>
 
-<form class = "bs-docs-example" style = "padding-bottom: 15px;">
+<form class = "box" style = "padding-bottom: 15px;">
 	<div class = "controls">
 		<input class = "fivecol" type = "text" placeholder = ".fivecol">
 	</div>
@@ -1604,7 +1668,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Present data in a form that's not editable without using actual form markup.</p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<span class = "input-xlarge uneditable-input">Some value here</span>
 </form>
 <pre class = "prettyprint linenums">
@@ -1616,7 +1680,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>End a form with a group of actions (buttons). When placed within a <code>.form-horizontal</code>, the buttons will
 	automatically indent to line up with the form controls.</p>
 
-<form class = "bs-docs-example">
+<form class = "box">
 	<div class = "form-actions">
 		<button type = "submit" class = "btn btn-primary">Save changes</button>
 		<button type = "button" class = "btn">Cancel</button>
@@ -1634,7 +1698,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Inline and block level support for help text that appears around form controls.</p>
 <h4>Inline help</h4>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input type = "text"> <span class = "help-inline">Inline help text</span>
 </form>
 <pre class = "prettyprint linenums">
@@ -1643,7 +1707,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h4>Block help</h4>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input type = "text">
 	<span class = "help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
 </form>
@@ -1664,7 +1728,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its
 	place for <code>:focus</code>.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input class = "input-xlarge focused" id = "focusedInput" type = "text" value = "This is focused...">
 </form>
 <pre class = "prettyprint linenums">
@@ -1675,7 +1739,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
 
-<form class = "bs-docs-example form-inline">
+<form class = "box form-inline">
 	<input class = "input-xlarge" id = "disabledInput" type = "text" placeholder = "Disabled input here…" disabled>
 </form>
 <pre class = "prettyprint linenums">
@@ -1687,7 +1751,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <p>Bootstrap includes validation styles for error, warning, info, and success messages. To use, add the appropriate
 	class to the surrounding <code>.control-group</code>.</p>
 
-<form class = "bs-docs-example form-horizontal">
+<form class = "box form-horizontal">
 	<div class = "control-group warning">
 		<label class = "control-label" for = "inputWarning">Input with warning</label>
 
@@ -1839,7 +1903,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	<p>Fancy larger or smaller buttons? Add <code>.btn-large</code>, <code>.btn-small</code>, or <code>.btn-mini</code>
 		for additional sizes.</p>
 
-	<div class = "bs-docs-example">
+	<div class = "box">
 		<p>
 			<button type = "button" class = "btn btn-large btn-primary">Large button</button>
 			<button type = "button" class = "btn btn-large">Large button</button>
@@ -1878,7 +1942,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	<p>Create block level buttons&mdash;those that span the full width of a parent&mdash; by adding
 		<code>.btn-block</code>.</p>
 
-	<div class = "bs-docs-example">
+	<div class = "box">
 		<div class = "well" style = "max-width: 400px; margin: 0 auto 10px;">
 			<button type = "button" class = "btn btn-large btn-block btn-primary">Block level button</button>
 			<button type = "button" class = "btn btn-large btn-block">Block level button</button>
@@ -1898,7 +1962,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 	<p>Add the <code>.disabled</code> class to <code>&lt;a&gt;</code> buttons.</p>
 
-	<p class = "bs-docs-example">
+	<p class = "box">
 		<a href = "#" class = "btn btn-large btn-primary disabled">Primary link</a>
 		<a href = "#" class = "btn btn-large disabled">Link</a>
 	</p>
@@ -1917,7 +1981,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 	<p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>
 
-	<p class = "bs-docs-example">
+	<p class = "box">
 		<button type = "button" class = "btn btn-large btn-primary disabled" disabled = "disabled">Primary button
 		</button>
 		<button type = "button" class = "btn btn-large" disabled>Button</button>
@@ -1933,7 +1997,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 	<p>Use the <code>.btn</code> class on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>
 		&lt;input&gt;</code> element.</p>
 
-	<form class = "bs-docs-example">
+	<form class = "box">
 		<a class = "btn" href = "">Link</a>
 		<button class = "btn" type = "submit">Button</button>
 		<input class = "btn" type = "button" value = "Input">
@@ -1960,7 +2024,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 	<p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>
 
-	<div class = "bs-docs-example bs-docs-example-images">
+	<div class = "box box-images">
 		<img src = "http://placehold.it/140x140" class = "img-rounded">
 		<img src = "http://placehold.it/140x140" class = "img-circle">
 		<img src = "http://placehold.it/140x140" class = "img-polaroid">
@@ -2178,7 +2242,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h5>Button group in a button toolbar</h5>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<div class = "btn-toolbar">
 		<div class = "btn-group">
 			<a class = "btn" href = "#"><i class = "icon-align-left"></i></a>
@@ -2202,7 +2266,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h5>Dropdown in a button group</h5>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<div class = "btn-group">
 		<a class = "btn btn-primary" href = "#"><i class = "icon-user icon-white"></i> User</a>
 		<a class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown" href = "#"><span class = "caret"></span></a>
@@ -2231,7 +2295,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h5>Small button</h5>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<a class = "btn btn-small" href = "#"><i class = "icon-star"></i></a>
 </div>
 <pre class = "prettyprint linenums">
@@ -2241,7 +2305,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h4>Navigation</h4>
 
-<div class = "bs-docs-example">
+<div class = "box">
 	<div class = "well" style = "padding: 8px 0; margin-bottom: 0;">
 		<ul class = "nav nav-list">
 			<li class = "active"><a href = "#"><i class = "icon-home icon-white"></i> Home</a></li>
@@ -2262,7 +2326,7 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 
 <h4>Form fields</h4>
 
-<form class = "bs-docs-example form-horizontal">
+<form class = "box form-horizontal">
 	<div class = "control-group">
 		<label class = "control-label" for = "inputIcon">Email address</label>
 
@@ -2324,7 +2388,10 @@ For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inlin
 <!-- Placed at the end of the document so the pages load faster -->
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src = "http://platform.twitter.com/widgets.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+<script src = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+<script src = "http://cdnjs.cloudflare.com/ajax/libs/chosen/0.9.8/chosen.jquery.min.js"></script>
+<script src = "../../js/jquery.dataTables.min.js"></script>
+<script src = "js/script.js"></script>
 
 
 </body>
