@@ -44,6 +44,8 @@
 @import "imports/wells.less";
 @import "imports/navbar.less";
 @import "imports/navs.less";
+@import "imports/type.less";
+
 /* Layout
 ----------------------------------------------------------------------------------------------------*/
 .row {
@@ -128,94 +130,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-hgroup.title {
-	text-align: center;
-	h1 {
-		margin: 0;
-		font-size: 4em;
-	}
-}
 
-a {
-	text-decoration: none;
-	.transition-all(0.3s);
-	&:hover {
-		text-shadow: 0 0 @baseFontSize lighten(@linkColor, 30%);
-	}
-}
-/*
-*
-*  Simple fluid media
-*
-*/
-
-figure {
-	position: relative;
-}
-figure img, figure object, figure embed, figure video {
-	max-width: 100%;
-	display: block;
-}
-img {
-	border: 0;
-	-ms-interpolation-mode: bicubic;
-}
-
-
-/*
-*
-*	Zoomable baseline grid
-*	type size presets
-*
-*/
-
-.small, small, code, #copyright p {
-	font-size: (@font-size*0.8125) / @em; // 13px
-	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
-}
-
-.normal {
-/* 16px / 24px */
-	font-size: @font-size / @em;
-	line-height: @line / @em; /* 24 */
-}
-
-.huge {
-/* 42px / 48px */
-	font-size: 42 / @em;
-	line-height: (@line*2) / 42 * 1em;
-}
-
-.massive {
-/* 68px / 72px */
-	font-size: 68 / @em;
-	line-height: (@line*3) / 68 * 1em;
-}
-
-.gigantic {
-/* 110px / 120px */
-	font-size: 110 / @em;
-	line-height: (@line*5) / 110 * 1em;
-}
-
-
-h1.title {
-	font-size: 3em;
-	margin-bottom: 0.4em;
-	line-height: 1.1em;
-}
-h2.subtitle {
-	font-size: 2em;
-	font-weight: italic;
-}
-p {
-	line-height: 1.4em;
-	padding-bottom: 0.7em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	margin-bottom: @border-radius;
-}
 
 article {
 	margin-bottom: 1em;
@@ -272,17 +187,6 @@ footer {
 		padding: 0;
 	}
 	padding: 0;
-}
-h1.showcase {
-	font-size: 5em;
-	font-family: @altFontFamily;
-	color: rgba(165, 165, 165, 0.81);
-	text-shadow: 0 0 15px rgba(201, 201, 201, 0.24);
-}
-
-h2.showcase {
-	font-family: @altFontFamily;
-	font-size: 4em;
 }
 
 .feature {
@@ -465,17 +369,7 @@ h6 {
 	margin: 0.2em 0;
 }
 
-/* UL styles */
 
-//checkboxes ul.check
-ul.check {
-	li {
-		&:before {
-			.right-icon("");
-			margin-right: @border-radius;
-		}
-	}
-}
 
 .social-button {
 	font-size: 7em;
@@ -518,7 +412,7 @@ ul.check {
 }
 
 .separator {
-	margin: 2.3em 0 2em;
+	margin: 1.3em 0 1em;
 }
 
 footer {
@@ -526,8 +420,11 @@ footer {
 }
 
 .sidebar-fixed {
+
 	ul {
+		.rounded-corners(@border-radius);
 		position: fixed;
+		width: 13.666666666666664%;
 		li {
 			display: block;
 		}

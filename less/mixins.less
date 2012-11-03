@@ -971,20 +971,20 @@ Site-wide rules
 			font-family: @monoFontFamily;
 		}
 	}
-	.shorthand(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+	.shorthand(@size: @baseFontSize * 1em, @weight: normal, @lineHeight: @baseLineHeight) {
 		font-size: @size;
 		font-weight: @weight;
 		line-height: @lineHeight;
 	}
-	.serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+	.serif(@size: @baseFontSize * 1em, @weight: normal, @lineHeight: @baseLineHeight) {
 		#font > #family > .serif;
 		#font > .shorthand(@size, @weight, @lineHeight);
 	}
-	.sans-serif(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+	.sans-serif(@size: @baseFontSize * 1em, @weight: normal, @lineHeight: @baseLineHeight) {
 		#font > #family > .sans-serif;
 		#font > .shorthand(@size, @weight, @lineHeight);
 	}
-	.monospace(@size: @baseFontSize, @weight: normal, @lineHeight: @baseLineHeight) {
+	.monospace(@size: @baseFontSize * 1em, @weight: normal, @lineHeight: @baseLineHeight * 1.2) {
 		#font > #family > .monospace;
 		#font > .shorthand(@size, @weight, @lineHeight);
 	}

@@ -35,32 +35,74 @@
 </head>
 <body>
 <section data-role = "page">
-	<header data-role = "header">
-		<h1>Page header</h1>
-		<nav data-role = "navbar">
+	<header data-role = "header row">
+		<h1>Joomla Musician Collaborator</h1>
+		<nav data-role = "nav navbar nav-fixed-top">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<a class="brand" href="./index.html">JCollaborator</a>
+			</button>
 			<ul>
-				<li><a href = "#">item1</a></li>
-				<li><a href = "#">item2</a></li>
-				<li><a href = "#">item3</a></li>
+				<li><a href = "/">Home</a></li>
+				<li><a href = "/about">About</a></li>
+				<li><a href = "/download">Download</a></li>
 			</ul>
 		</nav>
 	</header>
 	<!-- /header -->
-	<article data-role = "content">
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-			sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-			ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-			fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-			justo. Nullam dictum felis eu pede mollis pretium.</p>
-		<ul data-role = "listview">
-			<li><a href = "#">item1</a></li>
-			<li><a href = "#">item2</a></li>
-			<li><a href = "#">item3</a></li>
-		</ul>
+	<article data-role = "content row">
+		<div class="row centred">
+			<hgroup class="shoutout">
+				<h1 class="title">Introducing <em>Joomla Music Collaborator</em></h1>
+				<h2 class="subitle">The next-gen solution to your music netowking needs</h2>
+			</hgroup>
+		</div>
+		<div class="row call-to-action centred">
+			<button class="btn btn-primary btn-large" type="submit">Download <i class="icon-download"></i></button>
+			<button class="btn btn-large" type="submit">Demo <i class="icon-eye-2"></i></button>
+		</div>
+		<section class="row features">
+			<div class="row">
+				<!-- div.feature.fourcol>i.icon-user+h1+p.description -->
+			<div class="feature fourcol">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			<div class="feature fourcol">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			<div class="feature fourcol last">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			</div>
+					<div class="row">
+				<!-- div.feature.fourcol>i.icon-user+h1+p.description -->
+			<div class="feature fourcol">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			<div class="feature fourcol">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			<div class="feature fourcol last">
+				<i class="icon-user"></i>
+				<h1>Feature Name</h1>
+				<p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			</div>
+		</section>
+		</section>
 	</article>
 	<!-- /content -->
-	<footer data-role = "footer">
-		<h4>Page footer</h4>
+	<footer data-role = "footer" class = "centred row">
+		<h4>Joomla Music Collaborator</h4>
 	</footer>
 	<!-- /footer -->
 </section>
@@ -68,6 +110,11 @@
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src = "http://platform.twitter.com/widgets.js"></script>
+<script src = "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+<script src = "http://cdnjs.cloudflare.com/ajax/libs/chosen/0.9.8/chosen.jquery.min.js"></script>
+<script src = "../../js/jquery.dataTables.min.js"></script>
+<script src = "js/script.js"></script>
 <!-- <script src = "jquery.mobile-1.2.0.min.js"></script> -->
 <!-- scripts concatenated and minified via build script -->
 

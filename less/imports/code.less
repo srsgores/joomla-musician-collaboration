@@ -4,12 +4,14 @@
 
 // Inline and block code styles
 code,
-pre {
+kbd,
+pre,
+samp {
 	padding: 0 @paddingMini;
 	#font > #family > .monospace;
-	font-size: @baseFontSize - 2;
 	color: @grayDark;
 	.rounded-corners(@border-radius);
+	line-height: 1.4;
 }
 
 // Inline code
@@ -26,8 +28,6 @@ pre {
 	display: block;
 	padding: (@baseLineHeight - 1) / 2;
 	margin: 0 0 @baseLineHeight / 2;
-	font-size: @baseFontSize - 1; // 14px to 13px
-	line-height: @baseLineHeight;
 	word-break: break-all;
 	word-wrap: break-word;
 	white-space: pre;

@@ -76,7 +76,7 @@ input[disabled] {
 
 input[type="checkbox"],
 input[type="radio"] {
-	box-sizing: border-box; /* 1 */
+	.padding-fix;
 	padding: 0; /* 2 */
 }
 
@@ -88,9 +88,7 @@ input[type="radio"] {
 
 input[type="search"] {
 	-webkit-appearance: textfield; /* 1 */
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box; /* 2 */
-	box-sizing: content-box;
+	.padding-fix;
 }
 
 /*
@@ -200,6 +198,7 @@ input[type="color"],
 	.border-radius(@inputBorderRadius);
 	padding: 0.4em 0.2em;
 	width: 98%;
+	margin-bottom: @margin;
 }
 
 
@@ -261,9 +260,8 @@ input[type="checkbox"] {
 // Set the height of select and file controls to match text inputs
 select,
 input[type="file"] {
-	height: 30px; /* In IE7, the height of the select element cannot be changed by height, only font-size */
 	*margin-top: @border-radius; /* For IE7, add top margin to align select with labels */
-	line-height: 30px;
+	line-height: 2;
 }
 
 // Make select elements obey height by applying a border
@@ -326,7 +324,7 @@ textarea {
 // Move the options list down to align with labels
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
-	padding-top: @paddingSmall; // has to be padding because margin collaspes
+	padding: 0 @paddingSmall; // has to be padding because margin collaspes
 }
 
 // Radios and checkboxes on same line
@@ -341,7 +339,7 @@ textarea {
 
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
-	margin-left: 10px; // space out consecutive inline controls
+	margin-left: @paddingSmall; // space out consecutive inline controls
 }
 
 // INPUT SIZES
@@ -385,10 +383,10 @@ input[class*="span"],
 select[class*="span"],
 textarea[class*="span"],
 .uneditable-input[class*="span"], // Redeclare since the fluid row class is more specific
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"] {
+.row input[class*="span"],
+.row select[class*="span"],
+.row textarea[class*="span"],
+.row .uneditable-input[class*="span"] {
 	float: none;
 	margin-left: 0;
 }
@@ -398,12 +396,12 @@ textarea[class*="span"],
 .input-append .uneditable-input[class*="span"],
 .input-prepend input[class*="span"],
 .input-prepend .uneditable-input[class*="span"],
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"],
-.row-fluid .input-prepend [class*="span"],
-.row-fluid .input-append [class*="span"] {
+.row input[class*="span"],
+.row select[class*="span"],
+.row textarea[class*="span"],
+.row .uneditable-input[class*="span"],
+.row .input-prepend [class*="span"],
+.row .input-append [class*="span"] {
 	display: inline-block;
 }
 
@@ -468,11 +466,10 @@ select:focus:required:invalid {
 	margin-top: @baseLineHeight;
 	margin-bottom: @baseLineHeight;
 	background-color: @formActionsBackground;
-	border-top: 1px solid #363636;
+	border-top: 1px solid @dropdownDividerTop;
 	.centred;
 	.border-box;
 	.clearfix(); // Adding clearfix to allow for .pull-right button containers
-	.box-shadow(inset 0 -15px 11px -14px black);
 }
 
 // HELP TEXT
@@ -698,7 +695,7 @@ legend + .control-group {
 // Float the labels left
 	.control-label {
 		float: left;
-		width: 140px;
+		width: 10%;
 		padding-top: @paddingSmall;
 		text-align: right;
 	}
@@ -707,10 +704,10 @@ legend + .control-group {
 	// don't inherit the margin of the parent, in this case .controls
 		*display: inline-block;
 		*padding-left: 1.2em;
-		margin-left: 160px;
+		margin-left: 12%;
 		*margin-left: 0;
 		&:first-child {
-			*padding-left: 160px;
+			*padding-left: 12%;
 		}
 	}
 // Remove bottom margin on block level help text since that's accounted for on .control-group

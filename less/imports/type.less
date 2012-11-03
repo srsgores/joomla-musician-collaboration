@@ -5,8 +5,94 @@
 // Body text
 // -------------------------
 
+
+hgroup.title {
+	text-align: center;
+	h1 {
+		margin: 0;
+		font-size: 4em;
+	}
+}
+
+a {
+	text-decoration: none;
+	.transition-all(0.3s);
+	&:hover {
+		text-shadow: 0 0 @baseFontSize lighten(@linkColor, 30%);
+	}
+}
+/*
+*
+*  Simple fluid media
+*
+*/
+
+figure {
+	position: relative;
+}
+figure img, figure object, figure embed, figure video {
+	max-width: 100%;
+	display: block;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+
+/*
+*
+*	Zoomable baseline grid
+*	type size presets
+*
+*/
+
+.small, small, code, #copyright p {
+	font-size: (@font-size*0.8125) / @em; // 13px
+	line-height: (@line*0.75) / (@font-size*0.8125) * 1em; // 18px
+}
+
+.normal {
+/* 16px / 24px */
+	font-size: @font-size / @em;
+	line-height: @line / @em; /* 24 */
+}
+
+.huge {
+/* 42px / 48px */
+	font-size: 42 / @em;
+	line-height: (@line*2) / 42 * 1em;
+}
+
+.massive {
+/* 68px / 72px */
+	font-size: 68 / @em;
+	line-height: (@line*3) / 68 * 1em;
+}
+
+.gigantic {
+/* 110px / 120px */
+	font-size: 110 / @em;
+	line-height: (@line*5) / 110 * 1em;
+}
+
+
+h1.title {
+	font-size: 3em;
+	margin-bottom: 0.4em;
+	line-height: 1.1em;
+}
+h2.subtitle {
+	font-size: 2em;
+	font-weight: italic;
+}
 p {
-	margin: 0 0 @baseLineHeight / 2;
+	line-height: 1.4;
+	padding-bottom: 0.7em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: @border-radius;
 }
 
 .lead {
@@ -14,6 +100,208 @@ p {
 	font-size: @baseFontSize * 1.5;
 	font-weight: 200;
 	line-height: @baseLineHeight * 1.5;
+}
+
+h1.showcase {
+	font-size: 5em;
+	font-family: @altFontFamily;
+	color: rgba(165, 165, 165, 0.81);
+	text-shadow: 0 0 15px rgba(201, 201, 201, 0.24);
+}
+
+h2.showcase {
+	font-family: @altFontFamily;
+	font-size: 4em;
+}
+
+/* UL styles */
+
+//checkboxes ul.check
+ul.check {
+	li {
+		&:before {
+			.right-icon(@icon-checkmark-2);
+			margin-right: @border-radius;
+		}
+	}
+}
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+
+[hidden] {
+	display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-ms-text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * Removes default margin.
+ */
+
+body {
+	margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+	outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+
+b,
+strong {
+	font-weight: bold;
+}
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+	font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+/*
+ * Sets consistent quote types.
+ */
+
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+	bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+
+img {
+	border: 0;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+	overflow: hidden;
 }
 
 // Emphasis & misc
@@ -76,7 +364,6 @@ a.text-success:hover {
 // -------------------------
 
 h1, h2, h3, h4, h5, h6 {
-	margin: (@baseLineHeight / 2) 0;
 	font-family: @headingsFontFamily;
 	font-weight: @headingsFontWeight;
 	line-height: @baseLineHeight;
@@ -87,60 +374,6 @@ h1, h2, h3, h4, h5, h6 {
 		line-height: 1;
 		color: @grayLight;
 	}
-}
-
-h1,
-h2,
-h3 {
-	line-height: @baseLineHeight * 2;
-}
-
-h1 {
-	font-size: @baseFontSize * 2.75;
-}
-
-// ~38px
-h2 {
-	font-size: @baseFontSize * 2.25;
-}
-
-// ~32px
-h3 {
-	font-size: @baseFontSize * 1.75;
-}
-
-// ~24px
-h4 {
-	font-size: @baseFontSize * 1.25;
-}
-
-// ~18px
-h5 {
-	font-size: @baseFontSize;
-}
-
-h6 {
-	font-size: @baseFontSize * 0.85;
-}
-
-// ~12px
-
-h1 small {
-	font-size: @baseFontSize * 1.75;
-}
-
-// ~24px
-h2 small {
-	font-size: @baseFontSize * 1.25;
-}
-
-// ~18px
-h3 small {
-	font-size: @baseFontSize;
-}
-
-h4 small {
-	font-size: @baseFontSize;
 }
 
 // Page header
@@ -158,7 +391,7 @@ h4 small {
 // Unordered and Ordered lists
 ul, ol {
 	padding: 0;
-	margin: 0 0 @baseLineHeight / 2 25px;
+	margin: 0 0 @baseLineHeight / 2 1.7em;
 }
 
 ul ul,
@@ -169,7 +402,7 @@ ol ul {
 }
 
 li {
-	line-height: @baseLineHeight;
+	line-height: 1.4;
 }
 
 ul.unstyled,
@@ -181,11 +414,6 @@ ol.unstyled {
 // Description Lists
 dl {
 	margin-bottom: @baseLineHeight;
-}
-
-dt,
-dd {
-	line-height: @baseLineHeight;
 }
 
 dt {
@@ -201,13 +429,13 @@ dd {
 	.clearfix(); // Ensure dl clears floats if empty dd elements present
 	dt {
 		float: left;
-		width: @horizontalComponentOffset - 20;
+		width: @horizontalComponentOffset;
 		clear: left;
 		text-align: right;
 		.text-overflow();
 	}
 	dd {
-		margin-left: @horizontalComponentOffset;
+		margin-left: @horizontalComponentOffset + 1%;
 	}
 }
 
@@ -236,12 +464,12 @@ abbr.initialism {
 
 // Blockquotes
 blockquote {
-	padding: 0 0 0 15px;
+	padding: 0 0 0 @padding;
 	margin: 0 0 @baseLineHeight;
 	border-left: @paddingSmall solid @grayLighter;
 	p {
 		margin-bottom: 0;
-		#font > .shorthand(16px,300,@baseLineHeight * 1.25);
+		#font > .shorthand(@padding, 300, @baseLineHeight * 1.25);
 	}
 	small {
 		display: block;
@@ -255,7 +483,7 @@ blockquote {
 // Float right with text-align: right
 	&.pull-right {
 		float: right;
-		padding-right: 15px;
+		padding-right: @padding;
 		padding-left: 0;
 		border-right: @paddingSmall solid @grayLighter;
 		border-left: 0;
@@ -280,12 +508,4 @@ q:after,
 blockquote:before,
 blockquote:after {
 	content: "";
-}
-
-// Addresses
-address {
-	display: block;
-	margin-bottom: @baseLineHeight;
-	font-style: normal;
-	line-height: @baseLineHeight;
 }
