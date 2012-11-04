@@ -3,7 +3,7 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<!-- Blank Component 3.0.0 starts here -->
+
 <div class="blank<?php echo $this->pageclass_sfx; ?>">
 <?php if ($this->params->get('show_page_heading', 1)) : ?>
 <h1>
@@ -15,4 +15,3 @@ defined('_JEXEC') or die;
 </h1>
 <?php endif; ?>
 </div>
-<!-- Blank Component 3.0.0 ends here -->

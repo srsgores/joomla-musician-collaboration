@@ -5,7 +5,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class BlankComponentViewDefault extends JViewLegacy
+class JCollaboratorViewDefault extends JViewLegacy
 {
 
 	protected $params;
