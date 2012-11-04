@@ -1,1 +1,0 @@
-ALTER TABLE `#__ola` ADD `params` VARCHAR(1024) NOT NULL DEFAULT '';

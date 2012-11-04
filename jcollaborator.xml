@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type = "component" version = "3.0" client = "site" method = "upgrade">
+	<name>Joomla Music Collaborator</name>
+	<author>Sean Goresht</author>
+	<creationDate>November 2012</creationDate>
+	<copyright>Copyright © 2012, GPL 2.0</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>seangores@gmail.com</authorEmail>
+	<authorUrl>http://seangoresht.com.com</authorUrl>
+	<version>3.0.0</version>
+	<description>JomCollaborator is a component to facilitate musician networking.
+	</description>
+	<files>
+		<filename component = "com_jcollaborator">jcollaborator.php</filename>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<folder>views/</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>media</folder>
+		<folder>fonts</folder>
+	</files>
+	<administration>
+		<menu link = "option=com_jcollaborator">Blank Component</menu>
+		<files>
+			<filename component = "com_jcollaborator">jcollaborator.php</filename>
+		</files>
+	</administration>
+</extension>
