@@ -8,7 +8,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.controller');
 
 // Get an instance of the controller prefixed by Ola
-$controller = JControllerLegacy::getInstance('Ola');
+$controller = JControllerLegacy::getInstance('JCollaborator');
 
 // Perform the Request task
 $controller->execute(JRequest::getCmd('task'));

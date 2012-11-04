@@ -10,6 +10,7 @@ jimport('joomla.application.component.controller');
 /**
  * Ola Component Controller
  */
-class OlaController extends JControllerLegacy
+class JCollabController extends JControllerLegacy
 {
+
 }
