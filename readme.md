@@ -24,6 +24,10 @@ Develop with Us
 
 * Start by reading up on the Joomla CMS: [joomla reference manual](http://developer.joomla.org/manual/)
 * [Take a look at the information about developing for Joomla 3](http://docs.joomla.org/Developing_a_Model-View-Controller_Component/3.0/)
+* [Read the start of an informating, new book on joomla development](http://books.google
+.ca/books?id=TJREIRJlCboC&printsec=frontcover&dq=joomla+component+development&hl=en&sa=X&ei=m3GwUICCDYj1ygGE9oDYAw
+&redir_esc=y)
+* [Try a set of programming tutorials at phpeveryday](http://www.phpeveryday.com/articles/.TOC-Complete-Step-By-Step-Joomla-Programming-P625.html)
 
 Authors
 ------
@@ -37,7 +41,7 @@ Stuff We Use(d)
 * Sublime Text 2
 * JetBrains PHPStorm
 * AMPPS
-* PostGreSQL
+* PostGreSQL (in some cases)
 * PGAdmin III
 
 License

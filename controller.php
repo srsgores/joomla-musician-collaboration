@@ -18,7 +18,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controller');
 
-class BlankComponentController extends JControllerLegacy
+class JCollaborator extends JControllerLegacy
 {
 
 	public function display($cachable = false, $urlparams = false)
