@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="962019b0-9f0b-4560-a501-cd1366682692" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller.php" afterPath="$PROJECT_DIR$/controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jcollaborator.xml" afterPath="$PROJECT_DIR$/jcollaborator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="joomla-musician-collaboration.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,7 +102,7 @@
       <file leaf-file-name="install.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="5" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.64157706">
+            <state line="58" column="1" selection-start="1738" selection-end="1738" vertical-scroll-proportion="0.7311828">
               <folding />
             </state>
           </provider>
@@ -334,6 +330,11 @@
       <created>1351321519071</created>
       <updated>1351321519071</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added install script, and configured that in the xml file.  Updated readme">
+      <created>1353744847977</created>
+      <updated>1353744847977</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -523,7 +524,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="5" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.64157706">
+        <state line="58" column="1" selection-start="1738" selection-end="1738" vertical-scroll-proportion="0.7311828">
           <folding />
         </state>
       </provider>
