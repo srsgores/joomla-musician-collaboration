@@ -30,3 +30,12 @@ INSERT INTO '#__jcollaborator' ('attribute') VALUES
 	('Sample User'),
 	('Sample Username'),
 	('Sample description goes here');
+	
+CREATE TABLE IF NOT EXISTS 'jcollaborator_users' (
+	'username' varchar(8) NOT NULL,
+	'name' varchar(8) NOT NULL,
+	'age' int(2) unsigned NOT NULL,
+	'contact' varchar(8) NOT NULL,
+	'experience' varchar(8) NOT NULL,
+	UNIQUE KEY 'username' ('username')
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

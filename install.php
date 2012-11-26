@@ -13,13 +13,13 @@
     This file will initialize the installation process and then install all the needed sql for this application
 
 --------------------------------------------------------------------------------------------------------------------- */
-defined("J_EXEC") or die("Restricted access");
+defined("_JEXEC") or die("Restricted access");
 
 class com_jcollaboratorInstallScript
 {
 	function install($parent) //overriding the Joomla install function.  Here, we can say what custom stuff happens
 	{
-		$this->createTables();
+		$this->createTables($parent);
 		return true;
 	}
 	function uninstall($parent)
@@ -34,13 +34,14 @@ class com_jcollaboratorInstallScript
 	}
 
 	//Class functions
-	private function createTables()
+	private function createTables($parent)
 	{
 		$db = JFactory::getDbo();
 		$db->setDebug(0);
 		//get query from sql file
 		$query = null; //set query to null; otherwise, we will add a new value
-		$queryPath = JUri::root(true) . "joomla-music-collaborator/sql/install.sql";
+		$src = $parent->getParent()->getPath("source");
+		$queryPath = $src . "sql/install.sql";
 		if ($queryPath)
 		{
 			//if the sql file does exist, then let's assign its contents to our query variable
