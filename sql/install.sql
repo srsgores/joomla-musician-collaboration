@@ -39,3 +39,9 @@ CREATE TABLE IF NOT EXISTS 'jcollaborator_users' (
 	'experience' varchar(8) NOT NULL,
 	UNIQUE KEY 'username' ('username')
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS 'jcollaborator_track' (
+  'name' varchar(15) NOT NULL,
+  'length' time NOT NULL,
+  'username' varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
