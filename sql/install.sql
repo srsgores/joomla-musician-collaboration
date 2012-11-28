@@ -44,5 +44,47 @@ CREATE TABLE IF NOT EXISTS 'jcollaborator_track' (
   'name' varchar(15) NOT NULL,
   'length' time NOT NULL,
   'username' varchar(8) NOT NULL,
-  PRIMARY KEY (`name`)
+  PRIMARY KEY ('name')
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS 'jcollaborator_change' (
+  'id' int(1) NOT NULL,
+  'date' date NOT NULL,
+  'tname' varchar(8) NOT NULL,
+  'username' varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jcollaborator_genre`
+--
+
+CREATE TABLE IF NOT EXISTS 'jcollaborator_genre' (
+  'name' varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jcollaborator_instrument`
+--
+
+CREATE TABLE IF NOT EXISTS 'jcollaborator_instrument' (
+  'type' varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jcollaborator_user_DAW`
+--
+
+CREATE TABLE IF NOT EXISTS 'jcollaborator_user_DAW' (
+  'username' varchar(20) NOT NULL,
+  'u_DAW' varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
