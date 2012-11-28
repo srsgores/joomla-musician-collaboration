@@ -27,4 +27,9 @@
 			<filename component = "com_jcollaborator">jcollaborator.php</filename>
 		</files>
 	</administration>
+	<install folder = "sql">
+		<sql>
+			<file driver = "mysql" charset = "utf8">install.sql</file>
+		</sql>
+	</install>
 </extension>
